@@ -1,5 +1,5 @@
 # 
-import sublime, sublime_plugin, pprint, subprocess
+import sublime, sublime_plugin, pprint, subprocess, random
 
 class EventListener(sublime_plugin.EventListener):
 	def on_activated_async(self, view):
