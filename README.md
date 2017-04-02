@@ -6,15 +6,14 @@
 
 При активации какой либо из вкладок в окне запускается выполнение скрипта на bash, меняющего заголовки окон с помощью утилиты xdotool.
 
-##Требования
+## Требования
 
   - Linux
   - xdotool
 
-##Установка
+## Установка
 
-<code>
+```
 mkdir ~/.config/sublime-text-3/Packages/Prefixw
-
 git clone https://github.com/Zlatov/prefixw.git ~/.config/sublime-text-3/Packages/Prefixw
-</code>
+```
