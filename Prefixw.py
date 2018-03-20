@@ -1,4 +1,5 @@
-import sublime, sublime_plugin, pprint, subprocess
+import sublime, sublime_plugin, pprint, subprocess, re
+from pprint import pprint
 
 class EventListener(sublime_plugin.EventListener):
 	def on_activated_async(self, view):
@@ -13,7 +14,12 @@ class EventListener(sublime_plugin.EventListener):
 		return view.settings().get("prefixw")
 
 	def renameTab(self):
-		output = subprocess.check_output("~/.config/sublime-text-3/Packages/Prefixw/prefixw.sh", shell=True)
+		version_numbers = re.findall(r"(\d)\d+", sublime.version())
+		if len(version_numbers) == 0:
+			return None
+		if version_numbers[0] != '2' and version_numbers[0] != '3':
+			return None
+		output = subprocess.check_output("~/.config/sublime-text-" + version_numbers[0] + "/Packages/Prefixw/prefixw.sh", shell=True)
 		output = output.decode("utf-8").rstrip('\n')
 		if output!='done':
-			pprint.pprint(output)
+			pprint(output)
