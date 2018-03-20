@@ -17,3 +17,8 @@
 mkdir ~/.config/sublime-text-3/Packages/Prefixw
 git clone https://github.com/Zlatov/prefixw.git ~/.config/sublime-text-3/Packages/Prefixw
 ```
+
+```
+mkdir ~/.config/sublime-text-2/Packages/Prefixw
+git clone https://github.com/Zlatov/prefixw.git ~/.config/sublime-text-2/Packages/Prefixw
+```
