@@ -10,6 +10,9 @@ class EventListener(sublime_plugin.EventListener):
 		else:
 			self.renameTab()
 
+	def on_activated(self, view):
+		self.renameTab()
+
 	def loadProjectSettings(self, view):
 		return view.settings().get("prefixw")
 
@@ -17,9 +20,19 @@ class EventListener(sublime_plugin.EventListener):
 		version_numbers = re.findall(r"(\d)\d+", sublime.version())
 		if len(version_numbers) == 0:
 			return None
-		if version_numbers[0] != '2' and version_numbers[0] != '3':
-			return None
-		output = subprocess.check_output("~/.config/sublime-text-" + version_numbers[0] + "/Packages/Prefixw/prefixw.sh", shell=True)
-		output = output.decode("utf-8").rstrip('\n')
-		if output!='done':
+
+		if version_numbers[0] == '2':
+			output = subprocess.Popen(
+	            ["/bin/bash", "-c", "~/.config/sublime-text-2/Packages/Prefixw/prefixw.sh"],
+	            stdout=subprocess.PIPE,
+	            stderr=subprocess.PIPE,
+	            stdin=subprocess.PIPE,
+	            # startupinfo=startupinfo,
+	            # env=proc_env,
+	            shell=False)
 			pprint(output)
+		elif version_numbers[0] == '3':
+			output = subprocess.check_output("~/.config/sublime-text-3/Packages/Prefixw/prefixw.sh", shell=True)
+			output = output.decode("utf-8").rstrip('\n')
+			if output!='done':
+				pprint(output)
