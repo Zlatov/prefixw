@@ -30,7 +30,7 @@ class EventListener(sublime_plugin.EventListener):
 	            # startupinfo=startupinfo,
 	            # env=proc_env,
 	            shell=False)
-			pprint(output)
+			# pprint(output)
 		elif version_numbers[0] == '3':
 			output = subprocess.check_output("~/.config/sublime-text-3/Packages/Prefixw/prefixw.sh", shell=True)
 			output = output.decode("utf-8").rstrip('\n')
