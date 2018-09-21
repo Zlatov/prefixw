@@ -1,6 +1,6 @@
 # Prefixw
 
-Заменяет стандартные заголовки окон Sublime text 3 "filePath fileName (projectName)" на имя проекта.
+Заменяет стандартные заголовки окон Sublime text 3 "filePath fileName (projectName)" на имя проекта projectName, а путь открытого файла добавлен в статусбар.
 
 Это временное решение для Sublime text 3, пока разработчики не сделают подобный функционал нормальными методами.
 
